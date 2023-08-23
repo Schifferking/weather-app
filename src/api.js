@@ -27,6 +27,7 @@ const processData = (data) => {
     feelslike_c: data.current.feelslike_c,
     feelslike_f: data.current.feelslike_f,
     humidity: data.current.humidity,
+    is_day: data.current.is_day,
     temp_c: data.current.temp_c,
     temp_f: data.current.temp_f,
     uv: data.current.uv,
