@@ -36,8 +36,27 @@ const addFunctionality = () => {
     event.preventDefault();
     const response = await getWeatherData(input.value);
     const data = processData(response);
+    const weatherContainer = document.querySelector(".weather-container");
     // console.log(data);
     loadWeatherInfo(data);
+    weatherContainer.addEventListener("click", () => {
+      const pElements = weatherContainer.querySelectorAll("p");
+      if (pElements.length === 1) {
+        const feelslike = document.createElement("p");
+        const humidity = document.createElement("p");
+        const uv = document.createElement("p");
+        feelslike.classList = "extra";
+        humidity.classList = "extra";
+        uv.classList = "extra";
+        feelslike.textContent = `Feels like: ${data.current.feelslike_c} °C`;
+        humidity.textContent = `Humidity: ${data.current.humidity}`;
+        uv.textContent = `UV: ${data.current.uv}`;
+        weatherContainer.append(feelslike, humidity, uv);
+      } else {
+        const extraElements = Array.from(document.querySelectorAll(".extra"));
+        extraElements.forEach((element) => element.remove());
+      }
+    });
   });
 };
 
@@ -72,29 +91,12 @@ const loadWeatherContainer = () => {
   const weatherIcon = new Image();
   const p = document.createElement("p");
 
-  weatherContainer.classList.add("weather_container");
+  weatherContainer.classList.add("weather-container");
   weatherContainer.appendChild(h2);
   weatherContainer.appendChild(weatherIcon);
   weatherContainer.appendChild(p);
   main.appendChild(weatherContainer);
   body.insertBefore(main, script);
 };
-
-/* DISPLAY MORE WEATHER INFORMATION
-   Add a listener to weather-container div
-   In the listener function
-    Get an array of all p elements inside div
-    If the array length is 1, call function to add information
-      To add information
-      Make 3 new p elements
-      Assign them a class to distinguish them
-      The first one assign it the feelslike value
-      The second one will be humidity
-      The last one will be uv
-      Add them to div
-    If not, delete the extra elements (make it a function too)
-      Select the extra p elements with their class
-      call method to delete them
- */
 
 export { loadForm, loadBanner, loadWeatherContainer };
