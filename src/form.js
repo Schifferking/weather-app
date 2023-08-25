@@ -6,16 +6,13 @@ const weatherForm = () => {
   const hidden = document.createElement("input");
 
   label.textContent = "* Please enter a city name: ";
-  input.setAttribute("placeholder", "London");
   submit.textContent = "See weather";
+  input.setAttribute("placeholder", "London");
   submit.setAttribute("type", "submit");
   form.setAttribute("role", "search");
-  hidden.setAttribute("type", "hidden");
-  hidden.setAttribute("value", "C");
+  Object.assign(hidden, { type: "hidden", value: "C" });
   label.appendChild(input);
-  form.appendChild(label);
-  form.appendChild(submit);
-  form.appendChild(hidden);
+  form.append(label, submit, hidden);
   return form;
 };
 
