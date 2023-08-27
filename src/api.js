@@ -15,6 +15,17 @@ async function getWeatherData(location = "Guadalajara") {
   return result;
 }
 
+const processForecastData = (data, currentHour) => {
+  let processedData = [];
+  data.forEach((day) => {
+    const futureHours = day.hour.filter((h) => h.time_epoch > currentHour);
+    processedData.push(futureHours);
+  });
+  processedData = processedData.flat(1);
+  processedData = processedData.filter((hour, index) => index % 3 === 0);
+  return processedData;
+};
+
 const processData = (data) => {
   const processedData = {};
   processedData.location = {
@@ -33,7 +44,12 @@ const processData = (data) => {
     uv: data.current.uv,
   };
 
-  processedData.forecast = data.forecast;
+  const forecast = processForecastData(
+    data.forecast.forecastday,
+    data.location.localtime_epoch
+  );
+  console.log(forecast);
+  processedData.forecast = forecast;
   return processedData;
 };
 

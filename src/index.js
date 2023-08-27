@@ -1,6 +1,7 @@
 import "./style.css";
-import { loadForm, loadBanner, loadWeatherContainer } from "./dom";
+import { loadForm, loadBanner, loadFooter, loadWeatherContainer } from "./dom";
 
 loadForm();
 loadBanner();
 loadWeatherContainer();
+loadFooter();
