@@ -48,7 +48,6 @@ const processData = (data) => {
     data.forecast.forecastday,
     data.location.localtime_epoch
   );
-  console.log(forecast);
   processedData.forecast = forecast;
   return processedData;
 };

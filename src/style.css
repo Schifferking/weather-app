@@ -1,3 +1,319 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
 body {
-  background-color: lightblue;
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* end reset styles */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #add8e6;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  margin-left: 1em;
+  align-self: center;
+}
+
+label,
+input,
+button[type="submit"] {
+  font-size: 1.2em;
+}
+
+input {
+  background-color: #dfdfdf;
+  border: 2px solid #000000;
+}
+
+button[type="submit"] {
+  border: 2px solid #000000;
+}
+
+button:hover,
+button:active {
+  background-color: #dfdfdf;
+  transition-duration: 0.4s;
+}
+
+h1 {
+  font-size: 1.7em;
+  margin: 0.5em auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+header > button {
+  margin: 0.5em;
+  padding: 0.6em;
+  font-size: 1.5em;
+  border-radius: 35px;
+  align-self: flex-end;
+}
+
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.card {
+  width: 50%;
+  margin: 0 auto;
+  padding: 1% 0;
+  background-color: #dfdfdf;
+  border: 3px solid #000000;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.weather-container > p {
+  font-size: 1.3em;
+}
+
+.weather-container > img {
+  align-self: center;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+main > h2 {
+  align-self: center;
+}
+
+.weather-forecast-container {
+  width: 350px;
+  height: 350px;
+  padding: 1%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  align-self: center;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+li {
+  padding: 2%;
+  border: 2px solid #000000;
+  background-color: #dfdfdf;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+li > img {
+  align-self: center;
+}
+
+footer {
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+@media (max-width: 500px) {
+  header > button {
+    font-size: 1.2em;
+  }
+
+  form {
+    margin-left: 0;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  label,
+  input,
+  button[type="submit"] {
+    font-size: 1em;
+  }
+
+  label,
+  button[type="submit"] {
+    align-self: center;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  .card {
+    width: 75%;
+    padding: 5% 0;
+  }
+
+  .weather-container > p {
+    font-size: 1.1em;
+  }
+
+  .weather-forecast-container {
+    height: 150px;
+    border: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .weather-forecast-container {
+    border: 3px solid #000000;
+  }
 }
